@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>学习情况</title>
+
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"> </script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    <!-- 引入饼图的资源-->
+    <script type="text/javascript" src="../js/H5ComponentPie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPie.css">
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+        .iPhone{
+            width: 340px;
+            height: 540px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+    </style>
+
+
+</head>
+<body>
+<!-- 用于开发测试 H5ComponentPie 对象（饼图组件）-->
+<div class="iPhone">
+
+</div>
+
+<script type="text/javascript">
+
+    var cfg = {
+        type: "Pie",
+        width: 400,
+        height: 400,
+        data: [
+            ['Js', 0.2, '#ff7676'],
+            ['CSS3', 0.2],
+            ['HTML5', 0.1],
+            ['PHP', 0.3],
+            ['jQuery', 0.2],
+        ],
+        css: {
+            top:200
+            //opacity:0
+        },
+//        animateIn:{
+//            top: 300,
+//            opacity: 1
+//        },
+//        animationOut:{
+//            top: 100,
+//            opacity: 0
+//        },
+        center: true
+    }
+    var h5 = new H5ComponentPie( "myPieComponent", cfg );
+    $(".iPhone").append( h5 );
+
+    var leave = false;
+    $("body").click(function () {
+        leave = !leave;
+        $(".h5_component").trigger( leave ? "onLoad" : "onLeave");
+    })
+
+
+</script>
+
+</body>
+</html>

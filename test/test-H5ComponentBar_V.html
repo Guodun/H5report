@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>学习情况</title>
+
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBar.js"> </script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"> </script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    <!-- 引入垂直柱状图的资源-->
+    <script type="text/javascript" src="../js/H5ComponentBar_V.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBar_V.css">
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+        .iPhone{
+            width: 340px;
+            height: 540px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+    </style>
+
+
+</head>
+<body>
+<!-- 用于开发测试 H5ComponentBar_V 对象（柱组件）-->
+    <div class="iPhone">
+
+    </div>
+
+    <script type="text/javascript">
+
+        var cfg = {
+            type: "bar",
+            width: 530,
+            height: 600,
+            data: [
+                ['javascript', 0.4, 'green'],
+                ['HTML/CSS', 0.2],
+                ['CSS3', 0.35],
+                ['HTML5', 0.1],
+                ['jQuery', 0.5],
+                ['Bootstrap', 0.4],
+                ['AngularJS', 0.1]
+            ],
+            css: {
+                top:0,
+                opacity:0
+            },
+            animateIn:{
+                top: 200,
+                opacity: 1
+            },
+            animationOut:{
+                top: 100,
+                opacity: 0
+            },
+            center: true
+        }
+        var h5 = new H5ComponentBar_V( "myBarComponent_V", cfg );
+        $(".iPhone").append( h5 );
+
+        var leave = false;
+        $("body").click(function () {
+            leave = !leave;
+            $(".h5_component").trigger( leave ? "onLoad" : "onLeave");
+        })
+
+
+    </script>
+
+</body>
+</html>

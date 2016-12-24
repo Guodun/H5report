@@ -1,0 +1,31 @@
+.h5_component_Polyline{
+
+}
+.h5_component_Polyline canvas{
+    position: absolute;
+    top: 0;
+    left: 0; /* 用canvas做动画，会进行分层，要用到 z-index*/
+    width: 100%;
+    height: 100%;
+}
+.h5_component_Polyline .text{
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    bottom:  -20px;
+    height:  20px;
+    line-height: 20px;
+    transform: scale(0.8);
+    -webkit-transition: all 1s 1s;
+    -moz-transition: all 1s 1s;
+    -ms-transition: all 1s 1s;
+    -o-transition: all 1s 1s;
+    transition: all 1s 1s;
+    opacity: 0;
+}
+.h5_component_Polyline_load .text{
+    opacity: 1;
+}
+.h5_component_Polyline_leave .text{
+    opacity: 0;
+}
